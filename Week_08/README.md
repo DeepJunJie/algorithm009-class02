@@ -4,12 +4,14 @@
 位运算：
 
 数字在计算机中储存的格式就是二进制，位运算直接操作二进制位，效率高。基本的位运算操作包括：左移（<<）、右移（>>）、按位或（|）、按位与（&）、按位取反（~）、按位异或（^）。逻辑移位是指逻辑左移和逻辑右移，移出的空位都用0来补。算术移位需要分有符号型值和无符号型值。对于无符号型值，算术移位等同于逻辑移位。而对于有符号型值，算术左移等同于逻辑左移，算术右移补的是符号位，正数补0，负数补1。
-将x最右边的n位清零：x &(~0 << n)
-获取x的第n位值（0|1）: (x>>n)&1
-获取x的第n位的幂值：x&(1 << n )
-仅将第n位置为1：x|(1 << n )
-仅将第n位置为0：x&(~(1<< n))
-将x最高位至第n位（含）清零 x&((1<< n) -1)
+
+>各种有用的操作如下：
+>>将x最右边的n位清零：x&(~0 << n)
+>>获取x的第n位值（0|1）：(x>>n)&1
+>>获取x的第n位的幂值：x&(1<<n)
+>>仅将第n位置为1：x|(1 << n)
+>>仅将第n位置为0：x&(~(1<< n))
+>>将x最高位至第n位（含）清零 x&((1<< n) -1)
 
 布隆过滤器：
 
@@ -24,9 +26,9 @@ LRU缓存：
 
 初级排序算法有：选择排序（Selection Sort），插入排序（Insertion Sort），冒泡排序（Bubble Sort）。高级排序算法有：快速排序（Quick Sort），归并排序（Merge Sort）和堆排序（Heap Sort） 
 
-基本的排序算法如下：
+基本的排序算法如下：冒泡排序，插入排序，选择排序.
 
-冒泡排序，插入排序，选择排序。代码如下：
+```
 void BubbleSort(vector<int>& data) {
     if (data.empty()) return;
     int n = data.size();
@@ -44,8 +46,9 @@ void BubbleSort(vector<int>& data) {
         isChanged = !isChanged;
     }
 }
+```
 
-
+```
 void InsertionSort(vector<int>& data) {
     if (data.empty()) return;
     int n = data.size();
@@ -59,10 +62,10 @@ void InsertionSort(vector<int>& data) {
         }
     }
 }
+```
 
-
+```
 void selectionSort(int Array[], int len) {
- 
     int i,j,k,min;
     for (i = 0; i < len-1; i ++) {
         min = Array[i];
@@ -77,4 +80,7 @@ void selectionSort(int Array[], int len) {
         Array[i] = min;
     }
 }  
+```
+
+ 
 
