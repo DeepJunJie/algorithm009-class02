@@ -14,7 +14,6 @@ public:
         cols = rows ? board[0].size():0;
         if(rows==0 || cols==0) return res;
 
-        //½¨Á¢×ÖµäÊ÷µÄÄ£°å
         TrieNode* root = new TrieNode();
         for(string word:words){
             TrieNode *cur = root;
@@ -26,7 +25,7 @@ public:
             cur->word = word;
         }
 
-        //DFSÄ£°å
+        //DFSÄ£ï¿½ï¿½
         for(int i=0; i<rows; ++i){
             for(int j=0; j<cols; ++j){
                 dfs(board, root, i, j);
@@ -37,7 +36,7 @@ public:
 
     void dfs(vector<vector<char>>& board, TrieNode* root, int x, int y){
         char c = board[x][y];
-        //µÝ¹é±ß½ç
+        //ï¿½Ý¹ï¿½ß½ï¿½
         if(c=='.' || root->nodes[c-'a']==0) return;
         root = root->nodes[c-'a'];
         if(root->word!=""){
